@@ -1,0 +1,98 @@
+<html>
+	<head>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link href="dist/css/bootstrap.css" rel="stylesheet">
+		<script src="dist/js/jquery.min.js"></script>
+		<style>
+			#movieimg:hover{cursor: pointer;}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$("#movieimg").click(function(){
+					$('#upload').click()
+					 	$("#upload").change(function () {
+					        readURL(this);
+					  	});
+				});
+			});
+
+			function readURL(input) {
+				if (input.files && input.files[0]) {
+					var reader = new FileReader();
+						reader.onload = function (e) {
+					      $('#movieimg').attr('src', e.target.result);
+					    }
+					reader.readAsDataURL(input.files[0]);
+				}
+			};
+		</script>
+	</head>
+	<body>
+		<nav class="navbar bg-dark navbar-dark">
+			<a class="navbar-brand justify-content-start" href="#">
+   				<img src="logo.jpg" alt="Logo" style="width:70px;">
+  			</a>
+			<a href="index.php"><h2 style="color:white">MoviePage</h2></a>
+		</nav> 
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-sm-12 jumbotron">
+					<form method="POST" action="savepic.php" enctype="multipart/form-data">
+						<table align="center" cellpadding="10">
+							<tr>
+								<th>Poster</th>
+								<td><input type="file" id="upload" name="photo" style="display:none"/>
+									<img src="2.png" id="movieimg" height="100" width="100">
+								</td>
+							</tr>
+							<tr>
+								<th>Name</th>
+								<td><input type="text" id="fname" name="fname"></td>
+							</tr>
+							<tr>
+								<th>Storyline</th>
+								<td><textarea id="story" name="story"></textarea></td>
+							</tr>
+							<tr>
+								<th>Year</th>
+								<td><input type="text" id="year" name="year"></td>
+							</tr>
+							<tr>
+								<th>Generes</th>
+								<td><input type="text" id="generes" name="generes"></td>
+							</tr>
+							<tr>
+								<th>Language</th>
+								<td><input type="text" id="lang" name="lang"></td>
+							</tr>
+							<tr>
+								<th>Country</th>
+								<td><input type="text" id="country" name="country"></td>
+							</tr>
+							<tr>
+								<th>Runtime</th>
+								<td><input type="text" id="runtime" name="runtime"></td>
+							</tr>
+							<tr>
+								<th>Rating</th>
+								<td><input type="text" id="rating" name="rating"></td>
+							</tr>
+							<tr>
+								<th>Video</th>
+								<td><input type="file" id="upload1" name="video1"></td>
+							</tr>
+							
+						</table>
+						<div class="text-center">
+							<button type="submit" class="btn btn-primary">Done</button>
+						</div>
+					</form>	
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
